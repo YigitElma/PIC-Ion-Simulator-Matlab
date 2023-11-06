@@ -48,9 +48,9 @@ classdef particle
             obj.pos(2) = Lr - (obj.pos(2) - Lr);
         end
 
-        function obj = ReflectScreen(obj,x_screen)
+        function obj = ReflectScreen(obj,x_screen,percentEnergyAfterReflection)
             obj.pos(1) = x_screen - (obj.pos(1) - x_screen);
-            obj.vel(1) = -obj.vel(1);
+            obj.vel(1) = -sqrt(percentEnergyAfterReflection)*obj.vel(1);
         end
 
         function obj = ReflectAccel(obj,x_accel)

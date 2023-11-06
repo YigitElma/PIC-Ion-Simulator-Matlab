@@ -1,4 +1,4 @@
-function [potential, Ex, Ey] = Solve(A,b,N_r,N_z)
+function [potential, Ex, Ey] = Solve(A,b,N_r,N_z,dz,dr)
     potential = zeros(N_r, N_z);
    
     % Solve linear system of equations    
@@ -10,7 +10,7 @@ function [potential, Ex, Ey] = Solve(A,b,N_r,N_z)
     end
     
     % Calculate the gradient of potential
-    [Ex,Ey] = gradient(potential);
+    [Ex,Ey] = gradient(potential,dz,dr);
 
     % Electric field is the negative of the gradient 
     Ex = -Ex;
